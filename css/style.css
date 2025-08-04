@@ -40,11 +40,12 @@ a:hover {
 
 /* --- Estilos para la Sección de Inicio --- */
 #inicio {
-    min-height: 100vh; /* Ocupa el 100% de la altura de la pantalla */
+    min-height: 90vh; /* Ocupa el 100% de la altura de la pantalla */
     background: linear-gradient(rgba(13, 27, 42, 0.8), rgba(13, 27, 42, 0.8)), url('../assets/images/us1.png' );
     background-size: cover;
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
+    background-attachment: fixed; /* Esto crea el efecto Parallax y ayuda a posicionar */
 }
 
 /* Cursor parpadeante para el efecto de escritura */
@@ -156,6 +157,7 @@ a:hover {
     background-color: var(--color-primario); /* Un poco más oscuro que el fondo de la sección */
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
+    color:var(--color-texto);
 }
 
 .card-proyecto:hover {
@@ -218,6 +220,7 @@ a:hover {
 }
 
 .bento-content {
+    color: var(--color-texto);
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -291,7 +294,7 @@ a:hover {
 /* --- Estilos para la Sección de Contacto --- */
 #contacto .form-control {
     background-color: var(--color-secundario);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+   border: 1px solid rgba(255, 255, 255, 0.2); /* Aumentamos la opacidad del blanco */
     color: var(--color-texto);
     padding: 0.75rem 1rem; /* Hacemos los campos un poco más grandes */
 }
@@ -319,4 +322,88 @@ a:hover {
 .social-icon:hover {
     color: var(--color-acento);
     transform: translateY(-3px);
+}
+footer .text-muted {
+    color: rgba(224, 225, 221, 0.6) !important; /* Nuestro color de texto con 60% de opacidad */
+}
+
+/* --- Estilos para Botón Flotante de WhatsApp --- */
+.whatsapp-flotante {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25D366; /* Color oficial de WhatsApp */
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3 );
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-flotante:hover {
+    transform: scale(1.1);
+    color: #FFF; /* Mantenemos el color blanco del icono */
+}
+
+
+/* --- Estilos para Carrusel 3D de Habilidades --- */
+
+.scene {
+    width: 210px; /* Ancho de la "escena" */
+    height: 140px; /* Alto de la "escena" */
+    position: relative;
+    perspective: 1000px; /* Esto crea el efecto 3D. Un valor más bajo = más extremo. */
+}
+
+.carousel {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d; /* Permite que los hijos se posicionen en 3D */
+    transition: transform 1s; /* Animación suave al cambiar de celda */
+}
+
+.carousel__cell {
+    position: absolute;
+    width: 190px; /* Ancho de cada tarjeta */
+    height: 120px; /* Alto de cada tarjeta */
+    left: 10px;
+    top: 10px;
+    
+    background: rgba(27, 38, 59, 0.7); /* Fondo semitransparente */
+    backdrop-filter: blur(5px); /* Efecto vidrio esmerilado */
+    border: 2px solid var(--color-acento);
+    border-radius: 10px;
+    
+    /* Efecto de brillo con box-shadow */
+    box-shadow: 0 0 15px rgba(0, 166, 251, 0.5), 
+                0 0 20px rgba(0, 166, 251, 0.3) inset;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel__cell img {
+    width: 60px; /* Tamaño del logo */
+    height: 60px;
+    filter: grayscale(30%); /* Le da un look más integrado */
+    transition: all 0.3s ease;
+}
+
+.carousel__cell:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.1);
+}
+
+.carousel-controls {
+    display: flex;
+    gap: 1rem;
 }

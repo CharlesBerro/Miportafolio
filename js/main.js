@@ -73,3 +73,52 @@ document.addEventListener('DOMContentLoaded', function() {
     onScroll(); // Llama a la función una vez al cargar para establecer el estado inicial
 });
 
+// --- Lógica para el Carrusel 3D de Habilidades ---
+    const carousel = document.querySelector('.carousel');
+    if (carousel) { // Solo ejecuta si el carrusel existe en la página
+        const cells = carousel.querySelectorAll('.carousel__cell');
+        const cellCount = cells.length;
+        const prevButton = document.getElementById('prev-button');
+        const nextButton = document.getElementById('next-button');
+
+        let selectedIndex = 0;
+        const rotateFn = 'rotateY'; // Podemos girar en Y o en X
+
+        // Calcula el radio del círculo basado en el tamaño de las celdas
+        const radius = Math.round((190 / 2) / Math.tan(Math.PI / cellCount));
+
+        // Posiciona cada celda en el círculo 3D
+        cells.forEach((cell, i) => {
+            const cellAngle = (360 / cellCount) * i;
+            cell.style.transform = `${rotateFn}(${cellAngle}deg) translateZ(${radius}px)`;
+        });
+
+        function rotateCarousel() {
+            const angle = (360 / cellCount) * selectedIndex * -1;
+            carousel.style.transform = `translateZ(-${radius}px) ${rotateFn}(${angle}deg)`;
+        }
+
+        // Event Listeners para los botones
+        if (prevButton) {
+            prevButton.addEventListener('click', () => {
+                selectedIndex--;
+                rotateCarousel();
+            });
+        }
+
+        if (nextButton) {
+            nextButton.addEventListener('click', () => {
+                selectedIndex++;
+                rotateCarousel();
+            });
+        }
+
+        // Rotación automática (opcional)
+        setInterval(() => {
+            selectedIndex++;
+            rotateCarousel();
+        }, 4000); // Gira cada 4 segundos
+
+        rotateCarousel(); // Posiciona el carrusel inicialmente
+    }
+
