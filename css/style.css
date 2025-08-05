@@ -353,49 +353,96 @@ footer .text-muted {
 }
 
 
-/* --- Estilos para Carrusel 3D de Habilidades --- */
+
+
+/* --- Estilos para Carrusel 3D de Habilidades (Versión con Rotación Continua) --- */
 
 .scene {
-    width: 210px; /* Ancho de la "escena" */
-    height: 140px; /* Alto de la "escena" */
+    width: 210px;
+    height: 140px;
     position: relative;
-    perspective: 1000px; /* Esto crea el efecto 3D. Un valor más bajo = más extremo. */
+    perspective: 1000px;
 }
 
 .carousel {
     width: 100%;
     height: 100%;
     position: absolute;
-    transform-style: preserve-3d; /* Permite que los hijos se posicionen en 3D */
-    transition: transform 1s; /* Animación suave al cambiar de celda */
+    transform-style: preserve-3d;
+    /* La transición ya no es necesaria aquí, la controlará la animación */
+}
+
+/* --- Animación de rotación infinita --- */
+@keyframes rotate-carousel {
+    0% { transform: translateZ(-275px) rotateY(0deg); }
+    100% { transform: translateZ(-275px) rotateY(360deg); }
+}
+
+.continuous-rotation {
+    animation: rotate-carousel 30s infinite linear; /* 30s para una vuelta completa, lineal y sin fin */
+}
+
+/* Pausa la animación cuando el usuario pasa el ratón por encima */
+.continuous-rotation:hover {
+    animation-play-state: paused;
 }
 
 .carousel__cell {
     position: absolute;
-    width: 190px; /* Ancho de cada tarjeta */
-    height: 120px; /* Alto de cada tarjeta */
+    width: 140px;
+    height: 120px;
     left: 10px;
     top: 10px;
     
-    background: rgba(27, 38, 59, 0.7); /* Fondo semitransparente */
-    backdrop-filter: blur(5px); /* Efecto vidrio esmerilado */
+    /* El estilo de la tarjeta se mantiene igual */
+    background: rgba(27, 38, 59, 0.7);
+    backdrop-filter: blur(5px);
     border: 2px solid var(--color-acento);
     border-radius: 10px;
-    
-    /* Efecto de brillo con box-shadow */
     box-shadow: 0 0 15px rgba(0, 166, 251, 0.5), 
                 0 0 20px rgba(0, 166, 251, 0.3) inset;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    
+    /* Para que el contenido interno no gire con la tarjeta */
+    transform-style: preserve-3d;
 }
 
-.carousel__cell img {
-    width: 60px; /* Tamaño del logo */
-    height: 60px;
-    filter: grayscale(30%); /* Le da un look más integrado */
+.cell__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    /* La propiedad 'transform' será añadida por el JavaScript */
+    /* para mantener el contenido siempre de frente. */
+    transition: transform 1s; /* Añadimos una transición suave */
+}
+
+/* Cuando el usuario pausa el carrusel, queremos que el contenido se mantenga recto */
+.continuous-rotation:hover .cell__content {
+    transform: rotateY(0deg) !important; /* Forzamos a que se ponga recto */
+}
+.cell__content img {
+    width: 50px; /* Un poco más pequeño para dar espacio al texto */
+    height: 50px;
+    filter: grayscale(40%);
+    transition: all 0.2s ease;
+}
+.continuous-rotation:hover .cell__content {
+    transform: rotateY(0deg) !important;
+}
+.cell__content span {
+    color: var(--color-texto);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: 10px; /* Espacio entre el icono y el texto */
     transition: all 0.3s ease;
+}
+
+/* Efectos al pasar el ratón sobre una celda individual */
+.carousel__cell:hover .cell__content {
+    /* Pausamos la animación de "anti-rotación" para que la tarjeta se quede quieta */
+    animation-play-state: paused;
 }
 
 .carousel__cell:hover img {
@@ -403,7 +450,7 @@ footer .text-muted {
     transform: scale(1.1);
 }
 
-.carousel-controls {
-    display: flex;
-    gap: 1rem;
+.carousel__cell:hover span {
+    color: var(--color-acento);
+    transform: scale(1.05);
 }

@@ -18,15 +18,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Lato:wght@400;700&display=swap"
         rel="stylesheet">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-H9VS6Q62KP"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-H9VS6Q62KP');
-</script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H9VS6Q62KP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-H9VS6Q62KP');
+    </script>
 </head>
 
 <body>
@@ -35,8 +36,12 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-secundario fixed-top">
         <div class="container">
             <!-- Tu Nombre o Logo -->
-            <img src="assets/images/jox-designer.jpeg" alt="Estelar Joyeria" class="rounded-circle me-2" width="50"
-                height="50">
+            <img src="assets/images/jox-designer.jpeg" alt="Charles B" class="rounded-circle me-2" width="60"
+                height="60" style="background: rgba(27, 38, 59, 0.7);
+                backdrop-filter: blur(5px);
+                border: 2px solid var(--color-acento);
+                border-radius: 10px;
+                box-shadow: 0 0 15px rgba(0, 166, 251, 0.5), 0 0 20px rgba(0, 166, 251, 0.3) inset;">
 
             <a class="navbar-brand fs-4" href="#">Charles Web</a>
 
@@ -74,7 +79,9 @@
             <div class="row">
                 <div class="col-12">
                     <h1 class="display-2 fw-bold">Carlos B</h1>
-                    <p class="lead my-4">Soy Ingeniero de Sistemas y <span id="typed-text" class="fw-bold"></span></p>
+                    <p class="lead my-4">Soy Ingeniero de Sistemas y puedo ayudarte en: </br>
+                        <span id="typed-text" class="fw-bold"></span>
+                    </p>
                     <a href="#proyectos" class="btn btn-lg btn-outline-light mx-2">Ver mis Proyectos</a>
                     <a href="#contacto" class="btn btn-lg btn-primary-custom m-2">Contáctame</a>
                 </div>
@@ -88,7 +95,9 @@
             <div class="row text-center mb-5">
                 <div class="col-12">
                     <h2 class="display-5">Sobre Mí</h2>
-                    <p class="lead">Conoce un poco más sobre mi trayectoria y las tecnologías que utilizo.</p>
+                    <p class="lead">Conoce un poco más sobre mi trayectoria y las tecnologías que utilizo. Si necesitas
+                        ayuda en algun tema relacionado puedes comunicarmelo</p>
+                    <p class="lead"></p>
                 </div>
             </div>
 
@@ -108,53 +117,84 @@
                         la conceptualización hasta la implementación y el mantenimiento.
                     </p>
                     <!-- Opcional: Un botón para descargar tu CV -->
-                    <a href="#" class="btn btn-primary-custom mt-3">Descargar mi CV</a>
+
                 </div>
 
                 <!-- Columna de Habilidades (NUEVO CARRUSEL 3D) -->
                 <div class="col-lg-6 mt-5 mt-lg-0 d-flex flex-column align-items-center justify-content-center">
                     <h3 class="mb-4 text-center">Mis Habilidades</h3>
                     <div class="scene">
-                        <div class="carousel">
+                        <div class="carousel continuous-rotation">
                             <!-- Cada 'carousel__cell' es una habilidad. Añade o quita según necesites. -->
-                            <div class="carousel__cell"><img
-                                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
-                                    alt="HTML5"></div>
-                            <div class="carousel__cell"><img
-                                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"
-                                    alt="CSS3"></div>
-                            <div class="carousel__cell"><img
-                                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg"
-                                    alt="Bootstrap"></div>
-                            <div class="carousel__cell"><img
-                                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
-                                    alt="JavaScript"></div>
-                            <div class="carousel__cell"><img
-                                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
-                                    alt="React"></div>
-                            <div class="carousel__cell"><img
-                                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
-                                    alt="Python"></div>
-                            <div class="carousel__cell"><img
-                                    src="https://img.icons8.com/color/48/microsoft-excel-2019--v1.png" alt="Excel">
+                            <div class="carousel__cell">
+                                <div class="cell__content">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
+                                        alt="HTML5">
+                                    <span>HTML5</span>
+                                </div>
                             </div>
-                            <div class="carousel__cell"><img
-                                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"
-                                    alt="GitHub"></div>
-                            <div class="carousel__cell"><img
-                                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
-                                    alt="Git"></div>
+                            <div class="carousel__cell">
+                                <div class="cell__content">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"
+                                        alt="CSS3">
+                                    <span>CSS3</span>
+                                </div>
+                            </div>
+                            <div class="carousel__cell">
+                                <div class="cell__content">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg"
+                                        alt="Bootstrap">
+                                    <span>Bootstrap</span>
+                                </div>
+                            </div>
+                            <div class="carousel__cell">
+                                <div class="cell__content">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+                                        alt="JavaScript">
+                                    <span>JavaScript</span>
+                                </div>
+                            </div>
+                            <div class="carousel__cell">
+                                <div class="cell__content">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
+                                        alt="React">
+                                    <span>React</span>
+                                </div>
+                            </div>
+                            <div class="carousel__cell">
+                                <div class="cell__content">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+                                        alt="Python">
+                                    <span>Python</span>
+                                </div>
+                            </div>
+                            <div class="carousel__cell">
+                                <div class="cell__content">
+                                    <img width="48" height="48" src="https://img.icons8.com/fluency/48/ms-excel.png"
+                                        alt="ms-excel" />
+
+                                    <span>Excel</span>
+                                </div>
+                            </div>
+                            <div class="carousel__cell">
+                                <div class="cell__content">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"
+                                        alt="GitHub">
+                                    <span>GitHub</span>
+                                </div>
+                            </div>
+                            <div class="carousel__cell">
+                                <div class="cell__content">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
+                                        alt="Git">
+                                    <span>Git</span>
+                                </div>
+                            </div>
+
                         </div>
-                    </div>
-                    <!-- Opcional: Botones de control -->
-                    <div class="carousel-controls mt-4">
-                        <button id="prev-button" class="btn btn-outline-light btn-sm">‹</button>
-                        <button id="next-button" class="btn btn-outline-light btn-sm">›</button>
+
                     </div>
                 </div>
-
-            </div>
-        </div>
     </section>
 
     <!-- ========== SECCIÓN SERVICIOS (BENTO GRID) ========== -->
@@ -196,7 +236,7 @@
                                     d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1z" />
                             </svg>
                         </div>
-                        <h3 class="h5">Dashboards en Excel</h3>
+                        <h3 class="h5">Analisis de Datos, Dashboards en Excel</h3>
                         <p>Dashboards dinámicos para visualizar datos y facilitar la toma de decisiones.</p>
                     </div>
                 </div>
@@ -216,7 +256,8 @@
                             </svg>
                         </div>
                         <h3 class="h5">Soporte Técnico</h3>
-                        <p>Mantenimiento preventivo y correctivo para asegurar el óptimo rendimiento.</p>
+                        <p>Mantenimiento preventivo y correctivo para asegurar el óptimo rendimiento de tu computador.
+                        </p>
                     </div>
                 </div>
 
@@ -235,8 +276,9 @@
                             </svg>
                         </div>
                         <h3 class="h4">Catálogos Digitales</h3>
-                        <p>Desarrollo catálogos atractivos para que promociones y vendas tus productos de manera
+                        <p>* Desarrollo catálogos atractivos para que promociones y vendas tus productos de manera
                             efectiva en línea.</p>
+                        <p>* Si tienes una idea para mostrar tus productos contactame y lo hacemos a tu gusto.</p>
                     </div>
                 </div>
             </div>
@@ -273,8 +315,12 @@
                             </div>
                             <!-- Botones de acción -->
                             <div class="mt-auto">
-                                <a href="#" class="btn btn-outline-light btn-sm">Ver Demo</a>
-                                <a href="#" class="btn btn-outline-light btn-sm">Ver Código</a>
+                                <a href="https://damosaludcerete.com/" class="btn btn-outline-light btn-sm">Ver Sitio
+                                    1</a>
+                                <a href="https://rodigitalsas.com/" class="btn btn-outline-light btn-sm">Ver Sitio 2</a>
+                                <a href="#" class="btn btn-outline-light btn-sm">Ver Sitio 3</a>
+
+
                             </div>
                         </div>
                     </div>
@@ -319,8 +365,10 @@
                             </div>
                             <!-- Botones de acción -->
                             <div class="mt-auto">
-                                <a href="#" class="btn btn-outline-light btn-sm">Ver Demo</a>
-                                <a href="#" class="btn btn-outline-light btn-sm">Ver Código</a>
+                                <a href="https://charlesberro.github.io/tuempresa/"
+                                    class="btn btn-outline-light btn-sm">Ver Catalago 1</a>
+                                <a href="https://charlesberro.github.io/mabemFashion/"
+                                    class="btn btn-outline-light btn-sm">Ver Catalago 2</a>
                             </div>
                         </div>
                     </div>
@@ -418,6 +466,5 @@
 
 <!-- Tu JS Personalizado -->
 <script src="js/main.js"></script>
-
 
 </html>
